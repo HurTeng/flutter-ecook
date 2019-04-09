@@ -43,18 +43,22 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
 
   MaterialApp buildContentWidget() {
     return new MaterialApp(
+        theme: GlobalConfig.themeData,
         home: new Scaffold(
           appBar: buildAppBar(),
           body: buildWidget(),
-          floatingActionButton: new FloatingActionButton(
-            onPressed: _collectMenu,
-            tooltip: 'collectMenu',
-            backgroundColor: Colors.orangeAccent,
-            foregroundColor: isCollected ? Colors.redAccent : Colors.white,
-            child: new Icon(Icons.star),
-          ),
-        ),
-        theme: GlobalConfig.themeData);
+          floatingActionButton: _buildFloatingActionButton(),
+        ));
+  }
+
+  FloatingActionButton _buildFloatingActionButton() {
+    return new FloatingActionButton(
+      onPressed: _collectMenu,
+      tooltip: 'collectMenu',
+      backgroundColor: Colors.orangeAccent,
+      foregroundColor: isCollected ? Colors.redAccent : Colors.white,
+      child: new Icon(Icons.star),
+    );
   }
 
   Widget buildLoadingWidget() {
@@ -81,18 +85,22 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
   Widget buildWidget() {
     return new Container(
         color: Colors.white,
-        child: new ListView(padding: EdgeInsets.symmetric(horizontal: 20.0), // 内间距
+        child: new ListView(
             children: <Widget>[
               getMenuPicture(img),
-              new Text(title, style: titleTextStyle),
-              new Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.0),
-                child: new Text(healthStr, style: descriptionStyle),
-              ),
-              new Text('需要食材', style: subtitleStyle),
-              buildMaterialList(),
-              new Text('烹饪步骤', style: subtitleStyle),
-              buildStepList()
+              new Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15.0), // 内间距
+                  child: new Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                    new Text(title, style: titleTextStyle),
+                    new Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10.0),
+                      child: new Text(healthStr, style: descriptionStyle),
+                    ),
+                    new Text('需要食材', style: subtitleStyle),
+                    buildMaterialList(),
+                    new Text('烹饪步骤', style: subtitleStyle),
+                    buildStepList()
+                  ])),
             ]));
   }
 
@@ -163,7 +171,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
       tiles.add(new Divider(height: 20.0));
     }
     return new Padding(
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.all(15.0),
       child: new Column(children: tiles),
     );
   }
@@ -204,7 +212,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
         padding: EdgeInsets.symmetric(vertical: 10.0),
         child: new Text(
           title,
-          style: new TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'serif'),
+          style: new TextStyle(fontSize: 18.0, color: Colors.black, fontFamily: 'serif'),
         ));
   }
 

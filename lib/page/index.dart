@@ -4,7 +4,7 @@ import 'package:ecook/common/global_config.dart';
 import '../page/my_page.dart';
 import 'package:ecook/page/home_page.dart';
 import '../page/hot_page.dart';
-import '../page/category_page.dart';
+import '../page/new_category_page.dart';
 
 class Index extends StatefulWidget {
 

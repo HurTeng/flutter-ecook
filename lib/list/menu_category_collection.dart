@@ -6,11 +6,13 @@ import 'package:ecook/common/net_util.dart';
 import '../widget/menu_row.dart';
 
 class MenuCategoryCollection extends StatefulWidget {
+  var title;
+
   @override
   State<StatefulWidget> createState() => new MenuCategoryCollectionState(id);
   var id = "";
 
-  MenuCategoryCollection(id) {
+  MenuCategoryCollection(id, this.title) {
     this.id = id;
   }
 }
@@ -57,7 +59,11 @@ class MenuCategoryCollectionState extends State<MenuCategoryCollection> {
     if (listData == null) {
       return getCenter();
     } else {
-      return new Scaffold(body: createRefreshIndicator()); // require a Material widget ancestor
+      return new Scaffold(
+          appBar: AppBar(
+            title: Text(widget.title),
+          ),
+          body: createRefreshIndicator()); // require a Material widget ancestor
 //      return createRefreshIndicator();
     }
   }

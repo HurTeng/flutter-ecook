@@ -191,7 +191,7 @@ class SearchPageState extends State<SearchPage> {
     return new Container(
       margin: const EdgeInsets.only(left: 5.0),
       child: new FlatButton(
-          color: GlobalConfig.dark == true ? Colors.white10 : Colors.black12,
+          color: GlobalConfig.dark == true ? Colors.white10 : Colors.white70,
           shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
           onPressed: () {
             setState(() {

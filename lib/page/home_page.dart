@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:ecook/widget/top_search_bar.dart';
 import 'package:flutter/material.dart';
 import '../common/api.dart';
 import 'package:ecook/common/net_util.dart';
@@ -75,6 +76,15 @@ class _HomePageState extends State<HomePage> {
   // 状态对象定义了build方法
   @override
   Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: TopSearchBar(),
+      ),
+      body: _buildBody(),
+    );
+  }
+
+  Widget _buildBody() {
     // 无数据时，显示Loading
     if (listData == null) {
       return getCenter();
@@ -192,7 +202,7 @@ class _HomePageState extends State<HomePage> {
       height: 180.0,
       child: new Stack(
         children: <Widget>[
-          slideView,
+          new Padding(padding: EdgeInsets.only(top: 10.0), child: slideView),
           new Container(
             alignment: Alignment.bottomCenter,
             child: indicator,

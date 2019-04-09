@@ -50,6 +50,15 @@ class HotPageState extends State<HotPage> {
   // 状态对象定义了build方法
   @override
   Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: AppBar(
+        title: Text('热门菜谱'),
+      ),
+      body: _buildBody(),
+    );
+  }
+
+  Widget _buildBody() {
     // 无数据时，显示Loading
     if (listData == null) {
       return _getLoadingWidget();

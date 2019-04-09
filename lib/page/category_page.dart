@@ -193,9 +193,10 @@ class CategoryPageState extends State<CategoryPage> {
   void onItemClick(itemData) {
 //    var url = itemData['detailUrl'];
     var id = itemData['id'];
+    var title = itemData['name'];
     Navigator.push(
         context,
         new MaterialPageRoute(
-            builder: (ctx) => new MenuCategoryCollection(id)));
+            builder: (ctx) => new MenuCategoryCollection(id, title)));
   }
 }

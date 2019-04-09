@@ -1,3 +1,5 @@
+import 'package:ecook/widget/search_bar.dart';
+import 'package:ecook/widget/top_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ecook/common/global_config.dart';
 import 'package:ecook/page/search_page.dart';
@@ -19,7 +21,7 @@ class _MyPageState extends State<MyPage> {
     _getStorageList();
   }
 
-  Widget barSearch() {
+/*  Widget barSearch() {
     return new Container(
         child: new Row(
           children: <Widget>[getSearchBar()],
@@ -28,9 +30,9 @@ class _MyPageState extends State<MyPage> {
           borderRadius: const BorderRadius.all(const Radius.circular(4.0)),
           color: GlobalConfig.searchBackgroundColor,
         ));
-  }
+  }*/
 
-  Expanded getSearchBar() {
+/*  Expanded getSearchBar() {
     return new Expanded(
         child: new FlatButton.icon(
       onPressed: () {
@@ -44,7 +46,7 @@ class _MyPageState extends State<MyPage> {
         style: new TextStyle(color: GlobalConfig.fontColor),
       ),
     ));
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,8 @@ class _MyPageState extends State<MyPage> {
       length: 3,
       child: new Scaffold(
         appBar: new AppBar(
-          title: barSearch(),
+//          title: barSearch(),
+        title: TopSearchBar(),
           bottom: new TabBar(
             indicatorWeight: 4.0,
             indicatorColor: Colors.orange,
